@@ -1,0 +1,24 @@
+1. Launched application phonebook, swagger and postman.
+ 1)  Checking number of users in database   							GET     /users
+ 2)  Create new user (with @RequestBody)							POST    /users
+ 3)  Search user (by @RequestParam name)            						GET     /users/search?name=***
+ 4)  Search user (by @PathVariable userId)          						GET     /users/search/{userId}
+ 5)  User replacement (by @PathVariable userId and with @RequestBody)				PUT     /users/{userId}
+ 6)  Delete user (by @PathVariable userId)							DELETE  /users/{userId}
+ 7)  Checking user's contacts (by @PathVariable userId)						GET     /users/{userId}/contacts
+ 8)  Add contact to user (with @RequestBody)							POST    /users/{userId}/contacts
+ 9)  Search user's contact (by @RequestParam number) 						GET     /users/{userId}/contacts/search?number=***
+10)  Search user's contact (by @PathVariable userId and contactId)				GET     /users/{userId}/contacts/{contactId}
+11)  Change user's contact (by @PathVariable userId and contactId and with @RequestBody)	PUT     /users/{userId}/contacts/{contactId}
+12)  Delete user's contact (by @PathVariable userId and contactId)				DELETE  /users/{userId}/contacts/{contactId}
+
+3. Run instruction:
+ 1) Run application phonebook.jar;
+ 2) Open project TestTaskDins;
+ 3) Open console and write commands: mvn clean test;
+				     mvn allure:serve;
+				     mvn allure:report;
+
+4. Errors in project occur when trying to delete some entities from database.
+For example: When deleting any of two initial users, we get an error from server related to a restriction on this operation. [pic1 and pic2]
+When we try to delete second contact of first user, we discover his absence, although calling all contacts shows opposite. [pic3 and pic4]
